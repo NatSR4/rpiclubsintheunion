@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+<category>
+    <pattern>HELLO</pattern>
+    <template>Hi, this is the RPI UNION CLUBS bot. Out of the 200 clubs at RPI we have data on UPAC and its subcommittees currently.<srai>Okay</srai> </template>
+</category>
+<category>
+    <pattern>Okay</pattern>
+    <template>There are 5: Comedy, Concerts, Winter Carnival, GM Week, Cinema <br/> Ask 'WHAT ARE THE UPACS' to find out about each of them!</template>
+</category>
+<category>
+    <pattern>WHAT ARE THE UPACs</pattern>
+    <template>
+        <random>
+            <li>UPAC Concerts. A concert just for RPI! You'll find RPI has welcomed incredibly talented musicians through its door since the 70s! </li>
+            <li>UPAC Comedy. Late nights are comedy nights! If you look in the right places you'll find signed copies of posters of when RPI had famous comedians over!</li>
+            <li>UPAC Cinema. Fridays and Saturdays are for movie nights! If you look in the right places you'll find old magazines RPI used to advertize for movie showings</li>
+            <li>Winter Carnival. A favorite of the past few decades to enjoy all things winter!</li>
+            <li>GM Week. An RPI Tradition that begin in the 1940s. GM Week happens every year during the election of the student government body.
+            It is commemorated with a GM Week mug and with festivities</li>
+        </random>
+        <br />
+        Do you want to play a game? Enter "GAME" to play or enter "What are the upacs" to learn about the others 
+    </template>
+</category> 
+
+<category>
+      <pattern> GAME </pattern>
+      
+      <template>
+         <think><set name = "play"> Game</set></think>
+         <condition name = "play" value = "Game">
+            Now that you know all of the UPACs try and guess them!
+        <br />To guess say "IS blank a club"
+         </condition>
+         
+         <condition name = "play" value = "nothing">
+            No option chosen!
+         </condition>
+      </template>
+      
+   </category>
+
+<category>
+    <pattern>introduce</pattern>
+    <template>This is the RPI Union clubs bot, please introduce yourself "My name is inputname"</template>
+</category>
+
+<category>
+    <pattern>MY NAME IS *</pattern>
+    <template>   Hello <set name = "username"> <star/>! You can quite by sending: "Quit" </set>
+</template>
+</category>
+
+<category>
+    <pattern>*</pattern>
+    <template>Here's what you can ask me with their commands: Introduce <br/> What are the UPACs <br/> Is inputname a club</template>
+</category>
+
+<category>
+<pattern>IS <set>upac</set> A CLUB</pattern>
+<template> YES, <star /> IS A CLUB 
+</template>
+</category>
+
+<category>
+<pattern>IS * A CLUB</pattern>
+<template> NO, IT IS NOT A CLUB 
+</template>
+</category>
+
+<category>
+    <pattern>*PAC</pattern>
+    <template>mistake found</template>
+</category>
+
+<category>
+    <pattern>FAME</pattern>
+    <template>Game?</template>
+</category>
+
+<category>
+    <pattern>intro</pattern>
+    <template>Introduce?</template>
+</category>
+
+<category>
+    <pattern>Yes</pattern>
+    <template><srai>introduce</srai></template>
+</category>
+
+<category>
+      <pattern>Quit</pattern>
+      <template>
+         Goodbye <get name = "username"/> You can click on the 'X' to exit
+      </template>  
+   </category>  
+
+</aiml>
